@@ -17,7 +17,9 @@ https://developers.cloudflare.com/terraform/installing
 ## Environment Values
 
 ```java
+# Need to run this export to run the terraform apply
 
+export CLOUDFLARE_API_TOKEN=from dashboard
 ```
 
 ## Errors and messages

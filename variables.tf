@@ -16,20 +16,25 @@ variable "staging_domain" {
 
 variable "argo_subdomain" {
   type        = string
-  description = "The subdomain name to use for the argo tunnel site"
+  description = "The subdomain name to use for the tunnel site"
 }
 
 variable "cloudflare_account_id" {
   type        = string
-  description = "The account_id to use for the argo tunnel site"
+  description = "The account_id to use for the tunnel site"
+}
+
+variable "zone_id" {
+  type        = string
+  description = "The zone_id to use for the GitHub Oauth"
 }
 
 variable "GITHUB_ID" {
   type        = string
-  description = "The GITHUB_ID to use for the GitHub AUTH"
+  description = "The GITHUB_ID to use for the GitHub Oauth"
 }
 
 variable "GITHUB_SECRET" {
   type        = string
-  description = "The account_id to use for the GitHub AUTH"
+  description = "The account_id to use for the GitHub Oauth"
 }
