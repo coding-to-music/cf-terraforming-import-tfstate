@@ -177,7 +177,7 @@ cf-terraforming --version
 
 Output
 
-````java
+```java
 Error: unknown flag: --version
 Usage:
   cf-terraforming [command]
@@ -224,7 +224,7 @@ cf-terraforming v0.7.4
 
 ```java
 sudo apt  install golang-go
-````
+```
 
 And finally we install cf-terraforming with the following command:
 
