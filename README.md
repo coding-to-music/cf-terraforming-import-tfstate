@@ -250,7 +250,7 @@ brew tap cloudflare/cloudflare
 brew install --cask cloudflare/cloudflare/cf-terraforming
 ```
 
-Using cf-terraforming to generate Terraform configuration
+## Using cf-terraforming to generate Terraform configuration
 
 We are now ready to start generating a Terraform config. To begin, we run cf-terraforming to generate the first blocks of config for the DNS record resources and append it to the cloudflare.tf file we previously created.
 
@@ -299,6 +299,7 @@ After generating the DNS record resources, we now do the same for both firewall 
 
 ```java
 cf-terraforming generate --resource-type cloudflare_firewall_rule --zone <zone_id> >> cloudflare.tf
+
 cf-terraforming generate --resource-type cloudflare_filter --zone <zone_id> >> cloudflare.tf
 ```
 
@@ -306,6 +307,7 @@ Example:
 
 ```java
 cf-terraforming generate --resource-type cloudflare_firewall_rule --zone 9c2f972575d986b99fa03c7bbfaab414 >> cloudflare.tf
+
 cf-terraforming generate --resource-type cloudflare_filter --zone 9c2f972575d986b99fa03c7bbfaab414 >> cloudflare.tf
 ```
 
@@ -330,8 +332,11 @@ And an example with output:
 ```java
 cf-terraforming import --resource-type cloudflare_record --zone 9c2f972575d986b99fa03c7bbfaab414
 terraform import cloudflare_record.terraform_managed_resource_db185030f44e358e1c2162a9ecda7253 9c2f972575d986b99fa03c7bbfaab414/db185030f44e358e1c2162a9ecda7253
+
 terraform import cloudflare_record.terraform_managed_resource_e908d014ebef5011d5981b3ba961a011 9c2f972575d986b99fa03c7bbfaab414/e908d014ebef5011d5981b3ba961a011
+
 terraform import cloudflare_record.terraform_managed_resource_3f62e6950a5e0889a14cf5b913e87699 9c2f972575d986b99fa03c7bbfaab414/3f62e6950a5e0889a14cf5b913e87699
+
 terraform import cloudflare_record.terraform_managed_resource_47581f47852ad2ba61df90b15933903d 9c2f972575d986b99fa03c7bbfaab414/47581f47852ad2ba61df90b15933903d$
 ```
 
@@ -343,10 +348,15 @@ Now we actually run these terraform import commands to import the state. Below s
 
 ```java
 terraform import cloudflare_record.terraform_managed_resource_47581f47852ad2ba61df90b15933903d 9c2f972575d986b99fa03c7bbfaab414/47581f47852ad2ba61df90b15933903d
+
 cloudflare_record.terraform_managed_resource_47581f47852ad2ba61df90b15933903d: Importing from ID "9c2f972575d986b99fa03c7bbfaab414/47581f47852ad2ba61df90b15933903d"...
+
 cloudflare_record.terraform_managed_resource_47581f47852ad2ba61df90b15933903d: Import prepared!
+
 Prepared cloudflare_record for import
+
 cloudflare_record.terraform_managed_resource_47581f47852ad2ba61df90b15933903d: Refreshing state... [id=47581f47852ad2ba61df90b15933903d]
+
 Import successful!
 ```
 
@@ -356,6 +366,7 @@ With cloudflare_record imported, now we do the same for the firewall_rules and f
 
 ```java
 cf-terraforming import --resource-type cloudflare_firewall_rule --zone <zone_id>
+
 cf-terraforming import --resource-type cloudflare_filter --zone <zone_id>
 ```
 
@@ -363,12 +374,16 @@ Shown with output:
 
 ```java
 cf-terraforming import --resource-type cloudflare_firewall_rule --zone 9c2f972575d986b99fa03c7bbfaab414
+
 terraform import cloudflare_firewall_rule.terraform_managed_resource_0de909f3229341a2b8214737903f2caf 9c2f972575d986b99fa03c7bbfaab414/0de909f3229341a2b8214737903f2caf
+
 terraform import cloudflare_firewall_rule.terraform_managed_resource_0c722eb85e1c47dcac83b5824bad4a7c 9c2f972575d986b99fa03c7bbfaab414/0c722eb85e1c47dcac83b5824bad4a7c
+
 cf-terraforming import --resource-type cloudflare_filter --zone 9c2f972575d986b99fa03c7bbfaab414
+
 terraform import cloudflare_filter.terraform_managed_resource_ee048570bb874972bbb6557f7529e094 9c2f972575d986b99fa03c7bbfaab414/ee048570bb874972bbb6557f7529e094
+
 terraform import cloudflare_filter.terraform_managed_resource_1bb6cd50e2534a64a9ec698fd841ffc5 9c2f972575d986b99fa03c7bbfaab414/1bb6cd50e2534a64a9ec698fd841ffc5
-$
 ```
 
 As with cloudflare_record, we run these terraform import commands to ensure all the state is successfully imported.
