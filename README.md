@@ -14,6 +14,12 @@ https://github.com/cloudflare/terraform-provider-cloudflare
 
 https://developers.cloudflare.com/terraform/installing
 
+https://learn.hashicorp.com/tutorials/terraform/github-oauth?in=terraform/cloud
+
+https://developers.cloudflare.com/cloudflare-one/identity/idp-integration/github
+
+https://www.terraform.io/cloud-docs/vcs/github
+
 ## Environment Values
 
 ```java
