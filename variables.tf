@@ -29,9 +29,9 @@ variable "zone_id" {
   description = "The zone_id to use for the GitHub Oauth"
 }
 
-variable "GITHUB_ID" {
+variable "GITHUB_CLIENT_ID" {
   type        = string
-  description = "The GITHUB_ID to use for the GitHub Oauth"
+  description = "The GITHUB_CLIENT_ID to use for the GitHub Oauth"
 }
 
 variable "GITHUB_SECRET" {

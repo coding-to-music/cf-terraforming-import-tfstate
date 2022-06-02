@@ -1,0 +1,12 @@
+aws_region         = "us-east-1"
+site_domain        = "mydomain.com"
+staging_domain     = "staging.mydomain.com"
+argo_subdomain     = "argo.mydomain.com"
+cloudflare_account_id = "< from dash.cloudflare -->domain-->overview-->right-side >"
+zone_id = "< from dash.cloudflare -->domain-->overview-->right-side >"
+
+
+GITHUB_CLIENT_ID="< from github settings->apps >"
+GITHUB_SECRET="< from github settings->apps >"
+
+

@@ -24,8 +24,79 @@ export CLOUDFLARE_API_TOKEN=from dashboard
 
 ## Errors and messages
 
-```java
+Steps to reproduce:
 
+Following instructions in this tutorial:
+
+https://developers.cloudflare.com/cloudflare-one/identity/idp-integration/github
+
+copy terraform.tfvars-example to terraform.tfvars
+
+set variable values in terraform.tfvars
+
+```java
+aws_region         = "us-east-1"
+site_domain        = "mydomain.com"
+staging_domain     = "staging.mydomain.com"
+argo_subdomain     = "argo.mydomain.com"
+cloudflare_account_id = "< from dash.cloudflare -->domain-->overview-->right-side >"
+zone_id = "< from dash.cloudflare -->domain-->overview-->right-side >"
+
+GITHUB_CLIENT_ID="< from github settings->apps >"
+GITHUB_SECRET="< from github settings->apps >"
+```
+
+```java
+export CLOUDFLARE_API_TOKEN=from dashboard
+
+terraform init
+terraform plan
+terraform apply -auto-approve
+```
+
+Here is the provider that is showing the error, line 59 of cloudflare.tf
+
+```java
+# oauth
+resource "cloudflare_access_identity_provider" "github_oauth" {
+  # zone_id = data.cloudflare_zones.domain.zones[0].id
+  account_id = var.cloudflare_account_id
+  name       = "GitHub OAuth"
+  type       = "github"
+  config {
+    client_id     = var.GITHUB_CLIENT_ID
+    client_secret = var.GITHUB_SECRET
+  }
+}
+```
+
+Error output:
+
+```java
+Terraform will perform the following actions:
+
+  # cloudflare_access_identity_provider.github_oauth will be created
+  + resource "cloudflare_access_identity_provider" "github_oauth" {
+      + account_id = "****************"
+      + id         = (known after apply)
+      + name       = "GitHub OAuth"
+      + type       = "github"
+
+      + config {
+          + client_id     = "****************"
+          + client_secret = "**********************************"
+          + redirect_url  = (known after apply)
+        }
+    }
+
+Plan: 1 to add, 0 to change, 0 to destroy.
+cloudflare_access_identity_provider.github_oauth: Creating...
+╷
+│ Error: error creating Access Identity Provider for ID "": Authentication error (10000)
+│
+│   with cloudflare_access_identity_provider.github_oauth,
+│   on cloudflare.tf line 59, in resource "cloudflare_access_identity_provider" "github_oauth":
+│   59: resource "cloudflare_access_identity_provider" "github_oauth" {
 ```
 
 ## GitHub
@@ -220,7 +291,6 @@ Output
 ```java
 cf-terraforming v0.7.4
 ```
-
 
 ## Install Golang (Mac OS / Brew only)
 
