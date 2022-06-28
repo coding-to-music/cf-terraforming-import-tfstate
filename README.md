@@ -20,6 +20,8 @@ https://developers.cloudflare.com/cloudflare-one/identity/idp-integration/github
 
 https://www.terraform.io/cloud-docs/vcs/github
 
+https://docs.github.com/en/developers/apps/building-github-apps/authenticating-with-github-apps#generating-a-private-key
+
 ## Environment Values
 
 ```java

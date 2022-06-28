@@ -29,12 +29,17 @@ variable "zone_id" {
   description = "The zone_id to use for the GitHub Oauth"
 }
 
-variable "GITHUB_CLIENT_ID" {
+variable "github_client_id" {
   type        = string
   description = "The GITHUB_CLIENT_ID to use for the GitHub Oauth"
 }
 
-variable "GITHUB_SECRET" {
+variable "github_secret" {
   type        = string
   description = "The account_id to use for the GitHub Oauth"
+}
+
+variable "cloudflare_api_token" {
+  type        = string
+  description = "The cloudflare_api_token to use for Cloudflare"
 }
